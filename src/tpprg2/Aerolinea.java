@@ -184,7 +184,7 @@ public class Aerolinea implements IAerolinea {
 
 		    return nroAsiento;
 		}
-	    
+	    //a
 	    
 	
 	@Override
