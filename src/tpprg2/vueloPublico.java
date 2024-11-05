@@ -18,6 +18,7 @@ public class vueloPublico extends Vuelo {
     super(origen, destino, fecha, precioPasaje, horaSalida, horaLlegada,new ArrayList<>() ,aeropuertoSalida, aeropuertoLlegada,
 		          asiento, registroPasajeros, seccion, tripulantes);
 	
+    //QUEDA PENDIENTE SACAR EL SUPER ( )
 	this.valorRefrigerio=valorRefrigerio;
 	this.precios=precios;
 	this.cantAsientos=cantAsientos;
