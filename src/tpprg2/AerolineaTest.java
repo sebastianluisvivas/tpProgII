@@ -137,7 +137,7 @@ public class AerolineaTest {
 	}
 
 	
-	//aaa
+	//aaaBB
 	
 	@Test
 	public void ej08_venderPasaje_clienteRegistrado_pasajeVendido() {
