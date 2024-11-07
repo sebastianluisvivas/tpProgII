@@ -76,9 +76,34 @@ public class Aerolinea implements IAerolinea {
 	@Override
 	public String registrarVueloPublicoInternacional(String origen, String destino, String fecha, int tripulantes,
 			double valorRefrigerio, int cantRefrigerios, double[] precios, int[] cantAsientos, String[] escalas) {
-		
-		return null;
-		
+		// Verificar que el origen y el destino estén registrados en los aeropuertos de la aerolínea
+	    if (!aeropuertos.containsKey(origen) || !aeropuertos.containsKey(destino)) {
+	        throw new RuntimeException("Origen o destino no registrado en la aerolínea");
+	    }
+
+	    // Validar longitud de los arrays de precios y cantidades de asientos
+	    if (precios.length != 3 || cantAsientos.length != 3) {
+	        throw new IllegalArgumentException("La longitud de precios y cantAsientos debe ser 3");
+	    }
+
+	    // Crear el objeto VueloInternacional con los datos correspondientes
+	    VueloInternacional vuelo = new VueloInternacional(origen, destino, fecha, (escalas.length > 0 ? escalas[0] : ""));
+
+	    // Agregar las escalas adicionales, si existen
+	    if (escalas.length > 1) {
+	        for (int i = 1; i < escalas.length; i++) {
+	            vuelo.agregarEscala(escalas[i]); // Suponiendo que tienes un método para agregar escalas
+	        }
+	    }
+
+	    // Generar un código de vuelo único con el formato {número de vuelo}-PUB
+	    String codigoVuelo = 1 + "-PUB";
+	    vuelo.setCodigoVuelo(codigoVuelo);
+
+	    // Registrar el vuelo en el HashMap de vuelos
+	    vuelos.put(codigoVuelo, vuelo);
+
+	    return codigoVuelo;
 	}
 	
 	
